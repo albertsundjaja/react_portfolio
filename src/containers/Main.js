@@ -2,9 +2,9 @@ import React from 'react';
 import { Container, Navbar, Nav} from 'react-bootstrap';
 import Projects from './Projects/Projects';
 import About from './Abouts/Abouts';
-//import Housing from '../components/HousingAnalysis/Housing';
-//import MovieReviewApp from './MovieReviewApp/MovieReviewApp.js';
-import {Route} from 'react-router-dom';
+import Housing from '../components/HousingAnalysis/Housing';
+import MovieReviewApp from './MovieReviewApp/MovieReviewApp';
+import {Route, Switch} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 
 const main = (props) => { 
@@ -22,10 +22,13 @@ const main = (props) => {
             </Navbar>
 
             <Container className="mt-4 mb-2">
-                <Route path="/about" exact component={About} />
-                <Route path="/" exact component={Projects} />
-                
-                <Route render={() => <h1>Error 404 Not Found</h1>} />
+                <Switch>
+                    <Route path="/about" exact component={About} />
+                    <Route path="/" exact component={Projects} />
+                    <Route path="/projects/us_housing" exact component={Housing} />
+                    <Route path="/projects/movie_review" exact component={MovieReviewApp} />
+                    <Route render={() => <h1>Error 404 Not Found</h1>} />
+                </Switch>
             </Container>
         </React.Fragment>
     );

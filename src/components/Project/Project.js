@@ -1,11 +1,12 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 
 const project = (props) => {
 
     const goToProject = () => {
         const link = props.linkTo;
-        console.log(link);
+        props.history.push(link);
     }
 
     return (
@@ -27,4 +28,4 @@ const project = (props) => {
     )
 }
 
-export default project;
+export default withRouter(project);
