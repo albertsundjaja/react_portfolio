@@ -115,6 +115,36 @@ const housing = (props) => {
                     This means that year can be a good factor in determining house prices.
                 </Col>
             </Row>
+            <Row className="mt-4">
+                <Col md={12}>
+                    <h2>III. Model Fitting</h2>
+                    <p>
+                        We will fit a simple Linear Regression with L1 regularization (Lasso). 
+                        The features used are number of bedrooms, year built and onehot encoded neighborhood.
+                    </p>
+
+                    <h4 className="mt-3">III.1 Model Summary</h4>
+                    As a benchmark, an intercept only linear model was fitted. 
+                    The model achieved a 3-fold cross validation Mean Absolute Error (MAE) score $57,472 and R squared value of 0.0014
+
+                    The full model with all 3 features achieved a 3-fold cross validation MAE score of $34,027 and an R squared value of 0.5767.
+                    Looking at the R squared and MAE, the model is by no mean a good predictor. However, it is certainly better than the benchmark intercept only model.
+                    Given that the model only uses 3 features, achieving an R squared value of 0.5767 is remarkable, more than half of the variability in price can be explained by these 3 variables.
+                    <br/><br/>
+                    A model with Neighborhood features removed was also fitted. The model resulted in a 3-fold cross validation MAE score of $45,065 and R squared value of 0.3136.
+                    Thus, neighborhood does contribute a lot in price determination.
+                </Col>
+            </Row>
+            <Row className="mt-4">
+                <Col md={12}>
+                    <h2>IV. Conclusion</h2>
+                    <p>
+                        The price of properties in the US (Ames) can be predicted by using several variables.
+                        From the result of the experiment in this project, number of bedrooms, year built and neighborhood location can be used to predict the price of a property.
+                        While this is far from a perfect solution, by using these 3 variables, we can make a better educated guess compared to guessing using just the price mean of all the properties.
+                    </p>
+                </Col>
+            </Row>
         </React.Fragment>
     );
 }
