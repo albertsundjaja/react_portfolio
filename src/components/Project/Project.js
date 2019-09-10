@@ -16,9 +16,12 @@ const project = (props) => {
                 <Card.Title>
                     {props.title}
                 </Card.Title>
-                <Card.Subtitle className='mb-4 text-muted'>
+                <Card.Subtitle className='mb-2 text-muted'>
                     {props.subtitle}
                 </Card.Subtitle>
+                <small className='mb-4 text-muted'>
+                    {props.subsubtitle}
+                </small>
                 <Card.Text>
                     {props.text}
                 </Card.Text>

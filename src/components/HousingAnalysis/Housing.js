@@ -28,7 +28,8 @@ const housing = (props) => {
 
                         After exploration, the data appears to be clean and ready to use except for missing data. However, this missing data is
                         not an indication of error, it might just be that the house does not have that feature (e.g. Alley, Fence).
-                        As we will be doing exploratory data analysis we can leave missing values as is, and only clean when needed.
+                        As we will be doing exploratory data analysis and the variables of interest do not have missing values 
+                        we can leave other variables missing values as is.
                     </p>
                 </Col>
             </Row>
