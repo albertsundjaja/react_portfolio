@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Navbar, Nav, Row, Col} from 'react-bootstrap';
 import Home from './Home/Home';
+import HomeJumbotron from '../components/Home/HomeJumbotron';
 import About from './Abouts/Abouts';
 import Housing from '../components/HousingAnalysis/Housing';
 import MovieReviewApp from './MovieReviewApp/MovieReviewApp';
 import DangerousDriving from '../components/DangerousDriving/DangerousDriving';
-import {Route, Switch, NavLink} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import style from './Main.module.css';
 import CookieConsent from 'react-cookie-consent';
@@ -14,10 +15,13 @@ const main = (props) => {
     return (
         <React.Fragment>
             <CookieConsent
+                style={{backgroundColor: "#B5EA76", color:"#000"}}
                 enableDeclineButton
+                buttonText="Yay"
+                declineButtonText="Nay"
                 onDecline={() => alert("You dont's like cookies? ;(")}
                 onAccept={() => alert("Enjoy your cookies ;)")}>
-                Would you like some cookies? ;). This popup is for project showcase only. This website only use cookies to store your response to cookies consent.
+                Would you like some cookies? ;). This cookie only stores your response.
             </CookieConsent>
 
             <Navbar bg="dark" expand="md" variant="dark">
@@ -30,6 +34,8 @@ const main = (props) => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+
+            <Route path="/" exact component={HomeJumbotron} />
 
             <Container className="mt-4 mb-2">
                 <Switch>
