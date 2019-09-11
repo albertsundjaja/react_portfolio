@@ -73,4 +73,6 @@ const main = (props) => {
     );
 }
 
+//TODO: create a page for projects, demonstrating how components can easily be reusable
+
 export default main;

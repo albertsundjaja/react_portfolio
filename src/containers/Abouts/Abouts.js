@@ -42,4 +42,6 @@ const abouts = (props) => {
     );
 }
 
+//TODO: redux. user input something and display it in the Home.js showing how Redux can save states across components
+
 export default abouts;

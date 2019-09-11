@@ -8,7 +8,7 @@ import DangerousDrivingImg from '../../assets/aiforsea2.png';
 import RecommenderImg from '../../assets/recommender_system.png';
 import LazyLoad from 'react-lazyload';
 import style from './Projects.module.css';
-import {Fade} from 'react-reveal';
+import {Fade, Bounce} from 'react-reveal';
 
 const projects = (props) => {
     const lazyPlaceholder = (
@@ -28,6 +28,7 @@ const projects = (props) => {
                     <hr className={style.divider}/>
                 </Col>
             </Row>
+            <Bounce>
             <Row>
                 <Col md={4} sm={12} className="mt-2 mb-2">
                     <Project title="US Housing Analysis"
@@ -63,13 +64,13 @@ const projects = (props) => {
                             linkTo="/projects/dangerous_driving" />
                 </Col>
             </Row>
-            
+            </Bounce>
             <Row className={style.fullview}>
                 <Col md={12} className="my-auto text-center">
                 <PortfolioGuide 
                 title="Lazy Loading in Action"
                 body={<React.Fragment>Continue scrolling down to see more projects. <br/><br/>
-                    The delay is set to 2 seconds (to give the sense of loading). Actual render time is much faster ;) <br/><br/>
+                    The delay is set to 2 seconds (to give the sense of loading). Actual render time is much faster <br/><br/>
                     This is to demonstrate a JS trick called lazy loading. It will only render the component when user has scrolled to this section.
                     This save time for initial rendering so that the page seem to load faster (giving the user a sense of faster website load)</React.Fragment>}/>
                 </Col>

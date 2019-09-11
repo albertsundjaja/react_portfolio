@@ -4,6 +4,7 @@ import corgi from '../../assets/corgi.gif';
 import {Bounce} from 'react-reveal';
 import jumbotronBg from '../../assets/jumbotron_img.jpg';
 import PortfolioGuide from '../PortfolioGuide/PortfolioGuide';
+import {connect} from 'react-redux';
 
 const homeJumbotron = (props) => {
     return (
@@ -33,4 +34,10 @@ const homeJumbotron = (props) => {
     );
 }
 
-export default homeJumbotron;
+const mapStateToProps = state => {
+    return {
+        guideFlag: state.guideFlag
+    }
+}
+
+export default connect()(homeJumbotron);
