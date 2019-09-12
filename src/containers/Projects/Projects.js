@@ -24,7 +24,7 @@ const projects = (props) => {
     )
 
     // if the route is /projects, then this is true, remove the guided cards
-    const isOwnPage = props.location.pathname === "/projects" ? true : false;
+    let isOwnPage = props.location.pathname === "/projects" ? true : false;
     let delayLazyLoad = 2000;
     if (isOwnPage) {
         delayLazyLoad = 1;
@@ -89,7 +89,7 @@ const projects = (props) => {
             : null }
             <LazyLoad 
             placeholder={lazyPlaceholder}
-            height={300} offset={0}
+            height={300} offset={-10}
             throttle={delayLazyLoad}>
                 <Fade>
                     <Row>
