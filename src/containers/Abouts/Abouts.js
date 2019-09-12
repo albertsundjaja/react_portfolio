@@ -1,11 +1,12 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import PortfolioGuide from '../../components/PortfolioGuide/PortfolioGuide';
-
+import {connect} from 'react-redux';
 
 const abouts = (props) => {
     return (
         <React.Fragment>
+            {props.guideFlag ?
             <Row>
                 <Col md={12} className="text-center">
                 <PortfolioGuide title="React Routing" 
@@ -14,6 +15,7 @@ const abouts = (props) => {
                             Thus it preserves any saved states.</React.Fragment>}/>
                 </Col>
             </Row>
+            : null }
             <Row className="mt-5">
                 <Col md={6}>
                     <Row className="h-100">
@@ -42,6 +44,10 @@ const abouts = (props) => {
     );
 }
 
-//TODO: redux. user input something and display it in the Home.js showing how Redux can save states across components
+const mapStateToProps = state => {
+    return {
+        guideFlag: state.guideFlag
+    }
+}
 
-export default abouts;
+export default connect(mapStateToProps)(abouts);

@@ -1,12 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Jumbotron, Container, Row, Col, Image} from 'react-bootstrap';
 import corgi from '../../assets/corgi.gif';
 import {Bounce} from 'react-reveal';
 import jumbotronBg from '../../assets/jumbotron_img.jpg';
 import PortfolioGuide from '../PortfolioGuide/PortfolioGuide';
 import {connect} from 'react-redux';
+import SliderCheckbox from '../UI/SliderCheckbox';
 
-const homeJumbotron = (props) => {
+const HomeJumbotron = (props) => {
+
+    let guideCard = (
+        <React.Fragment>
+            This portfolio is also part of the project showcase. This website is a React SPA.
+            It demonstrates the use of React, React Router and Redux.
+            <br/><br/>
+            Throughout this website, you will see cards with dark blue background
+            like this. Its purpose is to inform/guide you on what's happening and what's the technology behind it. 
+            <br/><br/>
+            To turn off this feature, click the slider below<br/><br/>
+            <SliderCheckbox isChecked={props.guideFlag} handleOnChange={props.onRadioChange} />
+            <br/><br/>
+            This slider stores state in the Redux store, so that the on/off state is available across all components.
+        </React.Fragment>
+    )
+    if (!props.guideFlag) {
+        guideCard = (
+        <React.Fragment>
+            You turned off the guide feature
+            <br/><br/>
+            <SliderCheckbox isChecked={props.guideFlag} handleOnChange={props.onRadioChange} />
+            <br/><br/>
+            This slider stores state in the Redux store, so that the on/off state is available across all components.
+        </React.Fragment>
+        );
+    }
     return (
         <React.Fragment>
             <Jumbotron fluid style={{backgroundImage:`url(${jumbotronBg})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",
@@ -16,15 +43,7 @@ const homeJumbotron = (props) => {
                     <Col md={12} className="my-auto">
                     <Bounce><h1 className="mb-3">Welcome to my online portfolio</h1></Bounce>
                     <Image src={corgi} alt="Profile Pic" roundedCircle className="mb-3"/>
-                    <p>
-                    This portfolio is also part of the project showcase.
-                    It demonstrates the use of React, React Router and Redux.
-                    <br/><br/>
-                    </p>
-                    <PortfolioGuide title="Happy Exploring" body={<React.Fragment>
-                    Throughout this website, you will see cards with dark blue background
-                    like this. Its purpose is to inform/guide you on what's happening and what's the technology behind it. 
-                    </React.Fragment>}
+                    <PortfolioGuide title="Guide Cards" body={guideCard}
                     />
                     </Col>
                     </Row>
@@ -40,4 +59,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect()(homeJumbotron);
+const mapDispatchToProps = dispatch => {
+    return {
+        onRadioChange: () => dispatch({type:'TOGGLE_GUIDE'})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeJumbotron);

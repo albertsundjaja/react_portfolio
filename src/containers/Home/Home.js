@@ -3,6 +3,7 @@ import Projects from '../Projects/Projects';
 import {Row, Col} from 'react-bootstrap';
 import PortfolioGuide from '../../components/PortfolioGuide/PortfolioGuide';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 const home = (props) => {
     const clearCookieAndRefresh = () => {
@@ -31,6 +32,7 @@ const home = (props) => {
     );
     return (
         <React.Fragment>
+            {props.guideFlag ?
             <Row className="mb-5">
                 <Col md={12} className="text-center">
                     <PortfolioGuide
@@ -38,7 +40,9 @@ const home = (props) => {
                         body={cookieConsentBody}/>
                 </Col>
             </Row>
+            : null }
             <Projects />
+            {props.guideFlag ?
             <Row className="mt-5 mb-5">
                 <Col md={12} className="text-center">
                     <PortfolioGuide
@@ -46,8 +50,15 @@ const home = (props) => {
                         body={visitAboutMe}/>
                 </Col>
             </Row>
+            : null }
         </React.Fragment>
     );
 }
 
-export default home;
+const mapStateToProps = state => {
+    return {
+        guideFlag: state.guideFlag
+    }
+}
+
+export default connect(mapStateToProps)(home);

@@ -8,7 +8,9 @@ import DangerousDrivingImg from '../../assets/aiforsea2.png';
 import RecommenderImg from '../../assets/recommender_system.png';
 import LazyLoad from 'react-lazyload';
 import style from './Projects.module.css';
-import {Fade, Bounce} from 'react-reveal';
+import {Fade} from 'react-reveal';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 const projects = (props) => {
     const lazyPlaceholder = (
@@ -20,6 +22,14 @@ const projects = (props) => {
         </Row>
         </div>
     )
+
+    // if the route is /projects, then this is true, remove the guided cards
+    const isOwnPage = props.location.pathname === "/projects" ? true : false;
+    let delayLazyLoad = 2000;
+    if (isOwnPage) {
+        delayLazyLoad = 1;
+    }
+
     return (
         <React.Fragment>
             <Row className="mb-2">
@@ -28,7 +38,7 @@ const projects = (props) => {
                     <hr className={style.divider}/>
                 </Col>
             </Row>
-            <Bounce>
+            <Fade>
             <Row>
                 <Col md={4} sm={12} className="mt-2 mb-2">
                     <Project title="US Housing Analysis"
@@ -64,7 +74,8 @@ const projects = (props) => {
                             linkTo="/projects/dangerous_driving" />
                 </Col>
             </Row>
-            </Bounce>
+            </Fade>
+            {props.guideFlag && !isOwnPage ? 
             <Row className={style.fullview}>
                 <Col md={12} className="my-auto text-center">
                 <PortfolioGuide 
@@ -75,10 +86,11 @@ const projects = (props) => {
                     This save time for initial rendering so that the page seem to load faster (giving the user a sense of faster website load)</React.Fragment>}/>
                 </Col>
             </Row>
+            : null }
             <LazyLoad 
             placeholder={lazyPlaceholder}
             height={300} offset={0}
-            throttle={2000}>
+            throttle={delayLazyLoad}>
                 <Fade>
                     <Row>
                         <Col md={4} sm={6} className="mt-2 mb-2">
@@ -120,4 +132,10 @@ const projects = (props) => {
     );
 }
 
-export default projects;
+const mapStateToProps = state => {
+    return {
+        guideFlag: state.guideFlag
+    }
+}
+
+export default withRouter(connect(mapStateToProps)(projects));

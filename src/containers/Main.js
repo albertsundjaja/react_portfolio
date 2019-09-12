@@ -3,6 +3,7 @@ import { Container, Navbar, Nav, Row, Col} from 'react-bootstrap';
 import Home from './Home/Home';
 import HomeJumbotron from '../components/Home/HomeJumbotron';
 import About from './Abouts/Abouts';
+import Projects from './Projects/Projects';
 import Housing from '../components/HousingAnalysis/Housing';
 import MovieReviewApp from './MovieReviewApp/MovieReviewApp';
 import DangerousDriving from '../components/DangerousDriving/DangerousDriving';
@@ -30,6 +31,7 @@ const main = (props) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                     <LinkContainer to="/" exact><Nav.Link>Home</Nav.Link></LinkContainer>
+                    <LinkContainer to="/projects" exact><Nav.Link>Projects</Nav.Link></LinkContainer>
                     <LinkContainer to="/about" exact><Nav.Link>About Me</Nav.Link></LinkContainer> 
                     </Nav>
                 </Navbar.Collapse>
@@ -41,6 +43,7 @@ const main = (props) => {
                 <Switch>
                     <Route path="/about" exact component={About} />
                     <Route path="/" exact component={Home} />
+                    <Route path="/projects" exact component={Projects} />
                     <Route path="/projects/us_housing" exact component={Housing} />
                     <Route path="/projects/movie_review" exact component={MovieReviewApp} />
                     <Route path="/projects/dangerous_driving" exact component={DangerousDriving} />
@@ -72,7 +75,5 @@ const main = (props) => {
         </React.Fragment>
     );
 }
-
-//TODO: create a page for projects, demonstrating how components can easily be reusable
 
 export default main;
