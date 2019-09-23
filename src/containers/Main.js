@@ -7,6 +7,7 @@ import Projects from './Projects/Projects';
 import Housing from '../components/HousingAnalysis/Housing';
 import MovieReviewApp from './MovieReviewApp/MovieReviewApp';
 import DangerousDriving from '../components/DangerousDriving/DangerousDriving';
+import Pathfinder from './Pathfinder/Pathfinder';
 import {Route, Switch} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import style from './Main.module.css';
@@ -20,33 +21,35 @@ const main = (props) => {
                 enableDeclineButton
                 buttonText="Yay"
                 declineButtonText="Nay"
-                onDecline={() => alert("You dont's like cookies? ;(")}
+                onDecline={() => alert("You don't like cookies? ;(")}
                 onAccept={() => alert("Enjoy your cookies ;)")}>
-                Would you like some cookies? ;). This cookie only stores your response.
+                Would you like some cookies? This cookie only stores your response.
             </CookieConsent>
 
             <Navbar bg="dark" expand="md" variant="dark">
-                <Navbar.Brand href="/">Albert Sundjaja</Navbar.Brand>
+                <Navbar.Brand href="/home">Albert Sundjaja</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                    <LinkContainer to="/" exact><Nav.Link>Home</Nav.Link></LinkContainer>
+                    <LinkContainer to="/home" exact><Nav.Link>Home</Nav.Link></LinkContainer>
                     <LinkContainer to="/projects" exact><Nav.Link>Projects</Nav.Link></LinkContainer>
                     <LinkContainer to="/about" exact><Nav.Link>About Me</Nav.Link></LinkContainer> 
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
 
-            <Route path="/" exact component={HomeJumbotron} />
+            <Route path="/home" exact component={HomeJumbotron} />
 
             <Container className="mt-4 mb-2">
                 <Switch>
                     <Route path="/about" exact component={About} />
-                    <Route path="/" exact component={Home} />
+                    <Route path="/home" exact component={Home} />
+                    <Route path="/" exact component={Projects} />
                     <Route path="/projects" exact component={Projects} />
                     <Route path="/projects/us_housing" exact component={Housing} />
                     <Route path="/projects/movie_review" exact component={MovieReviewApp} />
                     <Route path="/projects/dangerous_driving" exact component={DangerousDriving} />
+                    <Route path="/projects/pathfinder" exact component={Pathfinder} />
                     <Route render={() => <h1>Error 404 Not Found</h1>} />
                 </Switch>
             </Container>

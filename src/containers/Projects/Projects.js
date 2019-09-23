@@ -6,6 +6,8 @@ import HouseImg from '../../assets/house.png';
 import MovieImg from '../../assets/movie.png';
 import DangerousDrivingImg from '../../assets/aiforsea2.png';
 import RecommenderImg from '../../assets/recommender_system.png';
+import PathfindingImg from '../../assets/pathfinding.jpg';
+import JwtImg from '../../assets/jwt.jpg';
 import LazyLoad from 'react-lazyload';
 import style from './Projects.module.css';
 import {Fade} from 'react-reveal';
@@ -29,6 +31,89 @@ const projects = (props) => {
     if (isOwnPage) {
         delayLazyLoad = 1;
     }
+
+    let normalLoadComp = (
+        <Fade>
+                    <Row>
+                        <Col md={4} sm={6} className="mt-2 mb-2">
+                            <Project title="Recommender System"
+                                    image={RecommenderImg}
+                                    subtitle="Data Analytics - Data Visualization - Linear Regression"
+                                    subsubtitle="Python - Pandas - Seaborn - Matplotlib - Sklearn"
+                                    text="Analysis of the Ames Housing dataset. 
+                                    The analysis provides insights on factors that 
+                                    affect house prices. A linear model with Lasso regularization was fitted to predict house price."
+                                    buttonText="Working Demo"
+                                    linkTo="/projects/us_housing" />
+                        </Col>
+                        <Col md={4} sm={6} className="mt-2 mb-2">
+                            <Project title="JWT Authentication & Authorization"
+                                    image={JwtImg}
+                                    subtitle="JSON Web Tokens (JWT) - REST API"
+                                    subsubtitle="React - Axios - Go"
+                                    text="An IMDb copycat to search for movie ratings and reviews. 
+                                    Data is fetched from themoviedb.org.
+                                    This project also implements lazy loading (infinite scrolling)."
+                                    buttonText="Working Demo" 
+                                    linkTo="/projects/movie_review" />
+                        </Col>
+                        <Col md={4} sm={6} className="mt-2 mb-2">
+                            <Project title="Pathfinding & Map Generator"
+                                    image={PathfindingImg}
+                                    subtitle="A* algorithm"
+                                    subsubtitle="Python"
+                                    text="A mini project with the purpose of generating a random map for pathfinding problem.
+                                    The map is generated randomly and a path solution is generated using A* algorithm."
+                                    buttonText="Working Demo"
+                                    linkTo="/projects/movie_review" />
+                        </Col>
+                    </Row>
+                </Fade>
+    );
+
+    let lazyLoadComp = (
+        <LazyLoad 
+            placeholder={lazyPlaceholder}
+            height={300} offset={-10}
+            throttle={delayLazyLoad}>
+                <Fade>
+                    <Row>
+                        <Col md={4} sm={6} className="mt-2 mb-2">
+                            <Project title="Recommender System"
+                                    image={RecommenderImg}
+                                    subtitle="Data Analytics - Data Visualization - Linear Regression"
+                                    subsubtitle="Python - Pandas - Seaborn - Matplotlib - Sklearn"
+                                    text="Analysis of the Ames Housing dataset. 
+                                    The analysis provides insights on factors that 
+                                    affect house prices. A linear model with Lasso regularization was fitted to predict house price."
+                                    buttonText="Working Demo"
+                                    linkTo="/projects/us_housing" />
+                        </Col>
+                        <Col md={4} sm={6} className="mt-2 mb-2">
+                            <Project title="JWT Authentication & Authorization"
+                                    image={JwtImg}
+                                    subtitle="JSON Web Tokens (JWT) - REST API"
+                                    subsubtitle="React - Axios - Go"
+                                    text="An IMDb copycat to search for movie ratings and reviews. 
+                                    Data is fetched from themoviedb.org.
+                                    This project also implements lazy loading (infinite scrolling)."
+                                    buttonText="Working Demo" 
+                                    linkTo="/projects/movie_review" />
+                        </Col>
+                        <Col md={4} sm={6} className="mt-2 mb-2">
+                            <Project title="Pathfinding & Map Generator"
+                                    image={PathfindingImg}
+                                    subtitle="A* algorithm"
+                                    subsubtitle="Python"
+                                    text="A mini project with the purpose of generating a random map for pathfinding problem.
+                                    The map is generated randomly and a path solution is generated using A* algorithm."
+                                    buttonText="Working Demo"
+                                    linkTo="/projects/movie_review" />
+                        </Col>
+                    </Row>
+                </Fade>
+            </LazyLoad>
+    );
 
     return (
         <React.Fragment>
@@ -87,47 +172,7 @@ const projects = (props) => {
                 </Col>
             </Row>
             : null }
-            <LazyLoad 
-            placeholder={lazyPlaceholder}
-            height={300} offset={-10}
-            throttle={delayLazyLoad}>
-                <Fade>
-                    <Row>
-                        <Col md={4} sm={6} className="mt-2 mb-2">
-                            <Project title="Recommender System"
-                                    image={RecommenderImg}
-                                    subtitle="Data Analytics - Data Visualization - Linear Regression"
-                                    subsubtitle="Python - Pandas - Seaborn - Matplotlib - Sklearn"
-                                    text="Analysis of the Ames Housing dataset. 
-                                    The analysis provides insights on factors that 
-                                    affect house prices. A linear model with Lasso regularization was fitted to predict house price."
-                                    buttonText="Working Demo"
-                                    linkTo="/projects/us_housing" />
-                        </Col>
-                        <Col md={4} sm={6} className="mt-2 mb-2">
-                            <Project title="JWT Authentication & Authorization"
-                                    image={MovieImg}
-                                    subtitle="JSON Web Tokens (JWT) - REST API"
-                                    subsubtitle="React - Axios - Go"
-                                    text="An IMDb copycat to search for movie ratings and reviews. 
-                                    Data is fetched from themoviedb.org.
-                                    This project also implements lazy loading (infinite scrolling)."
-                                    buttonText="Working Demo" 
-                                    linkTo="/projects/movie_review" />
-                        </Col>
-                        <Col md={4} sm={6} className="mt-2 mb-2">
-                            <Project title="Pathfinding Artificial Map Generator"
-                                    image={MovieImg}
-                                    subtitle="A* algorithm"
-                                    subsubtitle="Python"
-                                    text="A mini project with the purpose of generating a random map for pathfinding problem.
-                                    The map is generated randomly and a path solution is generated using A* algorithm."
-                                    buttonText="Working Demo"
-                                    linkTo="/projects/movie_review" />
-                        </Col>
-                    </Row>
-                </Fade>
-            </LazyLoad>
+            {isOwnPage ? normalLoadComp : lazyLoadComp}
         </React.Fragment>
     );
 }

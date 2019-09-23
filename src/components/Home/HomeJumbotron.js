@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Jumbotron, Container, Row, Col, Image} from 'react-bootstrap';
-import corgi from '../../assets/corgi.gif';
+import corgi from '../../assets/corgi.jpg';
 import {Bounce} from 'react-reveal';
 import jumbotronBg from '../../assets/jumbotron_img.jpg';
 import PortfolioGuide from '../PortfolioGuide/PortfolioGuide';
@@ -37,12 +37,12 @@ const HomeJumbotron = (props) => {
     return (
         <React.Fragment>
             <Jumbotron fluid style={{backgroundImage:`url(${jumbotronBg})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",
-            boxShadow:"inset 0 0 0 2000px rgba(0,0,0,0.3)",color:"#fff", minHeight:"100vh"}} className="text-center">
+            boxShadow:"inset 0 0 0 2000px rgba(0,0,0,0,0.1)",color:"#fff", minHeight:"100vh"}} className="text-center">
                 <Container className="h-100">
                     <Row className="h-100">
                     <Col md={12} className="my-auto">
                     <Bounce><h1 className="mb-3">Welcome to my online portfolio</h1></Bounce>
-                    <Image src={corgi} alt="Profile Pic" roundedCircle className="mb-3"/>
+                    <Image src={corgi} alt="Profile Pic" roundedCircle className="mb-3" style={{maxHeight:"200px"}}/>
                     <PortfolioGuide title="Guide Cards" body={guideCard}
                     />
                     </Col>
