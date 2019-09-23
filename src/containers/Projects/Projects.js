@@ -7,6 +7,7 @@ import MovieImg from '../../assets/movie.png';
 import DangerousDrivingImg from '../../assets/aiforsea2.png';
 import RecommenderImg from '../../assets/recommender_system.png';
 import PathfindingImg from '../../assets/pathfinding.jpg';
+import PortfolioImg from '../../assets/portfolio.jpg';
 import JwtImg from '../../assets/jwt.jpg';
 import LazyLoad from 'react-lazyload';
 import style from './Projects.module.css';
@@ -137,15 +138,14 @@ const projects = (props) => {
                             linkTo="/projects/us_housing" />
                 </Col>
                 <Col md={4} sm={12} className="mt-2 mb-2">
-                    <Project title="Movie Review App (IMDb copycat)"
-                            image={MovieImg}
-                            subtitle="REST API"
+                    <Project title="This Online Portfolio"
+                            image={PortfolioImg}
+                            subtitle="React SPA"
                             subsubtitle="React - Redux - React Router"
-                            text="An IMDb copycat to search for movie ratings and reviews. 
-                            Data is fetched from themoviedb.org.
-                            This project also implements lazy loading (infinite scrolling)."
-                            buttonText="Working Demo" 
-                            linkTo="/projects/movie_review" />
+                            text="This online portfolio is a React SPA showcasing the use of React, Redux and React Router.
+                            Visit the homepage to see the working demo."
+                            buttonText="Go to Home" 
+                            linkTo="/home" />
                 </Col>
                 <Col md={4} sm={12} className="mt-2 mb-2">
                     <Project title="Dangerous Driving Classification"

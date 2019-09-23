@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Navbar, Nav, Row, Col} from 'react-bootstrap';
+import { Container, Navbar, Nav, Row, Col, NavItem} from 'react-bootstrap';
 import Home from './Home/Home';
 import HomeJumbotron from '../components/Home/HomeJumbotron';
 import About from './Abouts/Abouts';
@@ -30,10 +30,10 @@ const main = (props) => {
                 <Navbar.Brand href="/home">Albert Sundjaja</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                    <LinkContainer to="/home" exact><Nav.Link>Home</Nav.Link></LinkContainer>
-                    <LinkContainer to="/projects" exact><Nav.Link>Projects</Nav.Link></LinkContainer>
-                    <LinkContainer to="/about" exact><Nav.Link>About Me</Nav.Link></LinkContainer> 
+                    <Nav pullRight>
+                    <LinkContainer to="/home" exact><Nav.Link active={false} >Home</Nav.Link></LinkContainer>
+                    <LinkContainer to="/projects" exact><Nav.Link active={false}>Projects</Nav.Link></LinkContainer>
+                    <LinkContainer to="/about" exact><Nav.Link active={false}>About Me</Nav.Link></LinkContainer> 
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

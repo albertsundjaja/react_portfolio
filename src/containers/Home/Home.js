@@ -1,8 +1,9 @@
 import React from 'react';
 import Projects from '../Projects/Projects';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col, Nav} from 'react-bootstrap';
 import PortfolioGuide from '../../components/PortfolioGuide/PortfolioGuide';
 import {Link} from 'react-router-dom';
+import {LinkContainer} from 'react-router-bootstrap';
 import {connect} from 'react-redux';
 
 const home = (props) => {
