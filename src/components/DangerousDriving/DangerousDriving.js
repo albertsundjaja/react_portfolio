@@ -24,24 +24,55 @@ const dangerousDriving = (props) => {
                         This is a crucial problem for company such as Grab which offers peer-to-peer ridesharing service
                         to ensure their users' satisfaction and safety.
                         <br/><br/>
-                        The data comes from the drivers' mobile phone sensors. The features are readings from accelerometer, gyroscope and accelerometer.
+                        Source code is available on my <a href="https://github.com/albertsundjaja/ride_safety">Github</a>
+                        <br/><br/>
+                    </p>
+                    <h2>Dataset</h2>
+                    <p>
+                        The data is provided by Grab. The data comes from the drivers' mobile phone sensors. The features are readings from accelerometer, gyroscope and accelerometer.
+                    </p>
+                    <h4>Cleaning and preprocessing</h4>
                         The challenges in this project are the cleaning, axes realignment and time-series analysis.
                         The accelerometer also measure gravity, and the axes differ from device to device as it depended on how the drivers put their mobile phones.
-                        Gravity can be filtered using low-pass filter. In this project Butterworth filter is used to clean gravity from the readings.
-                        The gravity is then used to find the quarternion rotation to realign the axes so that the axes are consistent across devices.
-                        <br/><br/>
-                        The cleaned and realigned data are then transformed using wavelet transform.
+                        Cleaning processes are as below:
+                    <ul>
+                        <li>Gravity is filtered using low-pass filter (Butterworth)</li>
+                        <li>Axes are rotated using gravity direction (quaternion rotation) so all readings have consistent axes</li>
+                    </ul>
+                    <p>
+                        Cleaned data is then transformed using wavelet transform.
                         Fourier Transform is usually used to transform signal from time-domain to frequency domain,
                         however, it has a drawback. The transformed signal loses the time dependent feature.
                         Wavelet transform is a better alternative as it also preserve time feature.
                         Training features are then extracted from the resulting transformed waves. 
-                        Examples of features extracted are the mean, median, zero crossings and hjorth parameters.
+                        <br/><br/>
+                        Features extracted are:
+                    </p>
+                    <ul>
+                        <li>5, 25, 75, 95 percentile</li>
+                        <li>median</li>
+                        <li>mean</li>
+                        <li>standard deviation</li>
+                        <li>variance</li>
+                        <li>residual mean square (RMS)</li>
+                        <li>maximum</li>
+                        <li>minimum</li>
+                        <li>maximum and minimum difference</li>
+                        <li>Peak-to-Average ratio</li>
+                        <li>kurtosis</li>
+                        <li>skew</li>
+                        <li>standard error of mean</li>
+                        <li>entropy</li>
+                        <li>zero-crossings</li>
+                        <li>mean-crossings</li>
+                        <li>hjorth parameters (mobility and complexity)</li>
+                    </ul>
+                    <h2>Classification Model</h2>
+                    <p>
                         These features are then trained on a Random Forest Classifier.
                         <br/><br/>
-                        The final model achieved an ROC AUC score of 0.65. Due to competition deadline (2 weeks competition time),
+                        The final model achieved an <b>ROC AUC score of 0.65</b>. Due to competition deadline (2 weeks competition time),
                         there was not enough time to tweak the model. I think that the prediction model can still be improved further.
-
-                        The source code is available in the <a href="https://github.com/albertsundjaja/ride_safety">Github repo</a>
                     </p>
                 </Col>
             </Row>
