@@ -51,9 +51,8 @@ const projects = (props) => {
                                     image={JwtImg}
                                     subtitle="JSON Web Tokens (JWT) - REST API"
                                     subsubtitle="React - Axios - Go"
-                                    text="An IMDb copycat to search for movie ratings and reviews. 
-                                    Data is fetched from themoviedb.org.
-                                    This project also implements lazy loading (infinite scrolling)."
+                                    text="A project which demonstrates the use of JWT for securing REST API. JWT is a resource 
+                                    friendly solution in securing API endpoints and server-to-server authentication & authorization."
                                     buttonText="Working Demo" 
                                     hrefTo="/jwt_auth" />
                         </Col>
@@ -92,9 +91,8 @@ const projects = (props) => {
                                     image={JwtImg}
                                     subtitle="JSON Web Tokens (JWT) - REST API"
                                     subsubtitle="React - Axios - Go"
-                                    text="An IMDb copycat to search for movie ratings and reviews. 
-                                    Data is fetched from themoviedb.org.
-                                    This project also implements lazy loading (infinite scrolling)."
+                                    text="A project which demonstrates the use of JWT for securing REST API. JWT is a resource friendly solution 
+                                    in securing API endpoints and server-to-server authentication & authorization."
                                     buttonText="Working Demo" 
                                     hrefTo="/jwt_auth" />
                         </Col>
