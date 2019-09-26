@@ -5,8 +5,16 @@ import { withRouter } from 'react-router-dom';
 const project = (props) => {
 
     const goToProject = () => {
-        const link = props.linkTo;
-        props.history.push(link);
+        if (props.linkTo) {
+            console.log("linkto");
+            console.log(props.linkTo);
+            const link = props.linkTo;
+            props.history.push(link);
+            return;
+        }
+        if (props.hrefTo) {
+            window.location = props.hrefTo;
+        }
     }
 
     return (

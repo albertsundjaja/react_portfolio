@@ -11,28 +11,17 @@ import Pathfinder from './Pathfinder/Pathfinder';
 import {Route, Switch} from 'react-router-dom';
 import {LinkContainer} from 'react-router-bootstrap';
 import style from './Main.module.css';
-import CookieConsent from 'react-cookie-consent';
 
 const main = (props) => { 
     return (
         <React.Fragment>
-            <CookieConsent
-                style={{backgroundColor: "#B5EA76", color:"#000"}}
-                enableDeclineButton
-                buttonText="Yay"
-                declineButtonText="Nay"
-                onDecline={() => alert("You don't like cookies? ;(")}
-                onAccept={() => alert("Enjoy your cookies ;)")}>
-                Would you like some cookies? This cookie only stores your response.
-            </CookieConsent>
-
             <Navbar bg="dark" expand="md" variant="dark">
                 <Navbar.Brand href="/home">Albert Sundjaja</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav pullRight>
+                    <Nav>
                     <LinkContainer to="/home" exact><Nav.Link active={false} >Home</Nav.Link></LinkContainer>
-                    <LinkContainer to="/projects" exact><Nav.Link active={false}>Projects</Nav.Link></LinkContainer>
+                    <LinkContainer to="/" exact><Nav.Link active={false}>Projects</Nav.Link></LinkContainer>
                     <LinkContainer to="/about" exact><Nav.Link active={false}>About Me</Nav.Link></LinkContainer> 
                     </Nav>
                 </Navbar.Collapse>

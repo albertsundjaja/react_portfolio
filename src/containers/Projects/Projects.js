@@ -4,6 +4,7 @@ import PortfolioGuide from "../../components/PortfolioGuide/PortfolioGuide";
 import Project from '../../components/Project/Project';
 import HouseImg from '../../assets/house.png';
 import MovieImg from '../../assets/movie.png';
+import ReviewImg from '../../assets/review.jpg';
 import DangerousDrivingImg from '../../assets/aiforsea2.png';
 import RecommenderImg from '../../assets/recommender_system.png';
 import PathfindingImg from '../../assets/pathfinding.jpg';
@@ -27,7 +28,7 @@ const projects = (props) => {
     )
 
     // if the route is /projects, then this is true, remove the guided cards
-    let isOwnPage = props.location.pathname === "/projects" ? true : false;
+    let isOwnPage = props.location.pathname === "/projects" || props.location.pathname === "/" ? true : false;
     let delayLazyLoad = 2000;
     if (isOwnPage) {
         delayLazyLoad = 1;
@@ -37,15 +38,13 @@ const projects = (props) => {
         <Fade>
                     <Row>
                         <Col md={4} sm={6} className="mt-2 mb-2">
-                            <Project title="Recommender System"
-                                    image={RecommenderImg}
-                                    subtitle="Data Analytics - Data Visualization - Linear Regression"
-                                    subsubtitle="Python - Pandas - Seaborn - Matplotlib - Sklearn"
-                                    text="Analysis of the Ames Housing dataset. 
-                                    The analysis provides insights on factors that 
-                                    affect house prices. A linear model with Lasso regularization was fitted to predict house price."
-                                    buttonText="Working Demo"
-                                    linkTo="/projects/us_housing" />
+                            <Project title="Women's Clothing Review Classification"
+                                        image={ReviewImg}
+                                        subtitle="Natural Language Processing"
+                                        subsubtitle="Python - Keras"
+                                        text="An NLP project which aims to classify whether a review is positive or negative."
+                                        buttonText="Working Demo"
+                                        hrefTo="/sentiment" />
                         </Col>
                         <Col md={4} sm={6} className="mt-2 mb-2">
                             <Project title="JWT Authentication & Authorization"
@@ -56,7 +55,7 @@ const projects = (props) => {
                                     Data is fetched from themoviedb.org.
                                     This project also implements lazy loading (infinite scrolling)."
                                     buttonText="Working Demo" 
-                                    linkTo="/projects/movie_review" />
+                                    hrefTo="/jwt_auth" />
                         </Col>
                         <Col md={4} sm={6} className="mt-2 mb-2">
                             <Project title="Pathfinding & Map Generator"
@@ -66,7 +65,7 @@ const projects = (props) => {
                                     text="A mini project with the purpose of generating a random map for pathfinding problem.
                                     The map is generated randomly and a path solution is generated using A* algorithm."
                                     buttonText="Working Demo"
-                                    linkTo="/projects/movie_review" />
+                                    hrefTo="/pathfind" />
                         </Col>
                     </Row>
                 </Fade>
@@ -80,15 +79,13 @@ const projects = (props) => {
                 <Fade>
                     <Row>
                         <Col md={4} sm={6} className="mt-2 mb-2">
-                            <Project title="Recommender System"
-                                    image={RecommenderImg}
-                                    subtitle="Data Analytics - Data Visualization - Linear Regression"
-                                    subsubtitle="Python - Pandas - Seaborn - Matplotlib - Sklearn"
-                                    text="Analysis of the Ames Housing dataset. 
-                                    The analysis provides insights on factors that 
-                                    affect house prices. A linear model with Lasso regularization was fitted to predict house price."
+                            <Project title="Women's Clothing Review Classification"
+                                    image={ReviewImg}
+                                    subtitle="Natural Language Processing"
+                                    subsubtitle="Python - Keras"
+                                    text="An NLP project which aims to classify whether a review is positive or negative."
                                     buttonText="Working Demo"
-                                    linkTo="/projects/us_housing" />
+                                    hrefTo="/sentiment" />
                         </Col>
                         <Col md={4} sm={6} className="mt-2 mb-2">
                             <Project title="JWT Authentication & Authorization"
@@ -99,7 +96,7 @@ const projects = (props) => {
                                     Data is fetched from themoviedb.org.
                                     This project also implements lazy loading (infinite scrolling)."
                                     buttonText="Working Demo" 
-                                    linkTo="/projects/movie_review" />
+                                    hrefTo="/jwt_auth" />
                         </Col>
                         <Col md={4} sm={6} className="mt-2 mb-2">
                             <Project title="Pathfinding & Map Generator"
@@ -109,7 +106,7 @@ const projects = (props) => {
                                     text="A mini project with the purpose of generating a random map for pathfinding problem.
                                     The map is generated randomly and a path solution is generated using A* algorithm."
                                     buttonText="Working Demo"
-                                    linkTo="/projects/movie_review" />
+                                    hrefTo="/pathfind" />
                         </Col>
                     </Row>
                 </Fade>
