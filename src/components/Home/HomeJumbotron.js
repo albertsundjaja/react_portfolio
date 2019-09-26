@@ -37,7 +37,7 @@ const HomeJumbotron = (props) => {
     return (
         <React.Fragment>
             <Jumbotron fluid style={{backgroundImage:`url(${jumbotronBg})`,backgroundRepeat:"no-repeat",backgroundSize:"cover",
-            boxShadow:"inset 0 0 0 2000px rgba(0,0,0,0,0.1)",color:"#fff", minHeight:"100vh"}} className="text-center">
+            color:"#fff", minHeight:"100vh"}} className="text-center">
                 <Container className="h-100">
                     <Row className="h-100">
                     <Col md={12} className="my-auto">
