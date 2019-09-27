@@ -17,15 +17,9 @@ const abouts = (props) => {
             </Row>
             : null }
             <Row className="mt-5">
-                <Col md={6}>
+                <Col md={7} className="mt-4 mb-2">
                     <Row className="h-100">
-                        <Col md={12} className="my-auto">
-                            <h1 style={{fontSize:"5em"}} className="text-center">G'day mate!</h1>
-                            
-                        </Col>
-                    </Row>
-                </Col>
-                <Col md={6} className="mt-4 mb-4">
+                        <Col xs={12}>
                     <h2>About me</h2>
                     <p>I am a passionate software developer / data scientist based in Melbourne, Australia. 
                         I have skills and interest in Front End, Back End, Data Analytics, Machine Learning and Artificial Intelligence. <br/><br/>
@@ -38,6 +32,21 @@ const abouts = (props) => {
                         AI algorithm implementation, and Linux devops.
 
                     </p>
+                    </Col>
+                    </Row>
+                </Col>
+                <Col md={5} className="mt-4 mb-2">
+                    <h2>Technical Skills</h2>
+                    <h4>Programming Language</h4>
+                    <p>Python, Go, Javascript, Java, C#, C++</p>
+                    <h4>Front-end frameworks</h4>
+                    <p>React, Bootstrap</p>
+                    <h4>Database</h4>
+                    <p>PostgreSQL, MongoDB, LevelDB</p>
+                    <h4>Data Science Libraries</h4>
+                    <p>Sklearn, PyTorch, Keras, Numpy, Pandas, Seaborn</p>
+                    <h4>Linux DevOps</h4>
+                    <p>Ubuntu, nginx</p>
                 </Col>
             </Row>
         </React.Fragment>
